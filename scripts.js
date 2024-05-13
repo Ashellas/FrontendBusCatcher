@@ -1,10 +1,10 @@
 const { shell } = require('electron');
 const { dialog } = require('@electron/remote');
 
-
 function generateToken() {
     shell.openExternal('https://github.com/settings/tokens');
 }
+
 document.addEventListener('DOMContentLoaded', function() {
     const checkButton = document.getElementById('checkPathButton');
     checkButton.addEventListener('click', () => {
@@ -27,24 +27,31 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
 
         var formData = {
-            path: document.getElementById('path').value,
-            name: document.getElementById('name').value,
-            owner: document.getElementById('owner').value,
-            githubToken: document.getElementById('githubToken').value,
-            methodId: document.getElementById('method').value
+            path: document.getElementById('path').value.trim(),
+            owner: document.getElementById('owner').value.trim(),
+            repo_name: document.getElementById('name').value.trim(),
+            github_token: document.getElementById('githubToken').value.trim(),
+            method_id: parseInt(document.getElementById('method').value.trim())
         };
+
+
 
         spinner.style.display = 'block';
         loadingText.textContent = 'Waiting for calculation...';
 
-        fetch('http://localhost:5000/data', {
+        fetch('http://localhost:5000/analyze', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(formData)
         })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                return response.json();
+            })
             .then(data => {
                 console.log('Success:', data);
                 localStorage.setItem('responseData', JSON.stringify(data));
@@ -56,9 +63,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch((error) => {
                 console.error('Error:', error);
                 spinner.style.display = 'none';
-                loadingText.textContent = 'Error occurred!';
+                loadingText.textContent = 'Error occurred: ' + error.message;
             });
     });
-
-
 });
