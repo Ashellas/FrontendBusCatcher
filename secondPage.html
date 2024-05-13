@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Details</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<h1 id="projectTitle">Repository Analysis Results</h1>
+
+<label>Key Developers</label>
+<div id="userClusters"></div>
+
+<div class="bus-factor">
+    Bus Factor<br>
+    <span class="number" id="busFactorNumber">Loading...</span>
+</div>
+
+<div class="grid-container">
+    <div class="column-1">
+        <div class="field">
+            <label>Branches</label>
+            <ul class="scrollable-list" id="branchList"></ul>
+        </div>
+        <div class="field">
+            <label>Files</label>
+            <ul class="scrollable-list" id="fileList"></ul>
+        </div>
+    </div>
+    <div class="column-2">
+        <label style="font-weight: bold; font-size: 1.5em; margin-bottom: 10px; display: block;">Detailed Schema</label>
+        <label>Line Count: <span id="lineCount"></span></label>
+        <label>Method: <span id="method"></span></label>
+        <label>Developer Count: <span id="developerCount"></span></label>
+    </div>
+</div>
+
+<button id="backButton" style="position: fixed; left: 20px; bottom: 20px;">Back to Home</button>
+
+
+<script src="secondPage.js"></script>
+
+</body>
+</html>

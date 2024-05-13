@@ -1,0 +1,162 @@
+body {
+    background-color: #f2f2f2; /* Light grey background */
+    font-family: Arial, sans-serif; /* Sets a nice, readable font */
+    padding: 20px; /* Adds some padding around the content */
+}
+
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Subtle shadow */
+    max-width: 500px; /* Limits form width */
+    margin: auto; /* Centers the form horizontally */
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%; /* Makes input fields take up 100% of form width */
+    padding: 8px; /* Padding inside the input fields */
+    margin: 8px 0; /* Margin for spacing between fields */
+    display: inline-block; /* Ensures fields are inline */
+    border: 1px solid #ccc; /* Standard light grey border */
+    border-radius: 4px; /* Rounded borders for the fields */
+    box-sizing: border-box; /* Border box sizing */
+}
+
+button {
+    background-color: #679a9a; /* Green background for buttons */
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.group {
+    margin-bottom: 16px; /* Adds space between groups */
+}
+
+#submit-button {
+    position: absolute; /* Positioning it absolutely relative to its positioned parent */
+    right: 20px; /* 20px from the right */
+    bottom: 20px; /* 20px from the bottom */
+}
+
+/* Additional spacing */
+.break-2 {
+    margin-bottom: 16px; /* Space after the first group */
+}
+
+.break-3 {
+    margin-bottom: 24px; /* Space before the GitHub token */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns of equal width */
+    gap: 20px; /* Space between columns */
+    margin-top: 20px;
+}
+
+.column-1, .column-2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.scrollable-list {
+    max-height: 150px;
+    overflow-y: auto; /* Makes the list scrollable */
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+#userClusters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates a dynamic grid */
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.user-cluster {
+    margin-bottom: 10px;
+}
+
+.progress {
+    background-color: #ddd; /* Light grey background */
+    border-radius: 4px;
+    width: 100%; /* Full width to contain the progress bar */
+    height: 20px; /* Set the height of the progress bar */
+    overflow: hidden; /* Ensures no overflow of the inner bar */
+}
+
+.progress-bar {
+    background-color: #4CAF50; /* Green background for the progress bar */
+    height: 100%; /* Full height of the container */
+    color: white;
+    text-align: right; /* Aligns the text to the right */
+    padding-right: 5px; /* Adds padding inside the progress bar for the text */
+    border-radius: 4px; /* Rounds corners of the progress bar */
+    position: relative;
+}
+
+.progress-bar::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 3px; /* Small indicator */
+    height: 100%;
+    background-color: #4CAF50; /* Red indicator for small values */
+    display: none; /* Default hidden */
+}
+
+.progress-bar.small::before {
+    display: block; /* Show indicator for small values */
+}
+
+.bus-factor {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-color: transparent; /* Transparent background */
+    border: 3px solid black; /* Black border, 3px thick */
+    border-radius: 50%; /* Keeps the div circular */
+    color: black;
+    text-align: center;
+    font-size: 14px; /* Smaller font size for "Bus Factor" */
+    padding-top: 25px; /* Padding to center vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bus-factor .number {
+    font-size: 30px; /* Larger font size for the number */
+    line-height: 30px; /* Adjusted line height for visual alignment */
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

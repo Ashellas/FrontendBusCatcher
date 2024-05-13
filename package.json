@@ -1,0 +1,14 @@
+{
+  "name": "FrontendBusCatcher",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron /Users/semih/IdeaProjects/FrontendBusCatcher"
+  },
+  "devDependencies": {
+    "electron": "^15.5.7"
+  },
+  "dependencies": {
+    "@electron/remote": "^2.1.2"
+  }
+}
